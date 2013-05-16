@@ -1,0 +1,32 @@
+<h1>Showtimes</h1>
+
+<p><%= link_to 'Add a New Showtime', new_showtime_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Theater</th>
+      <th>Shown at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @showtimes.each do |showtime| %>
+    <tr>
+      <td><%= showtime.movie.title %></td>
+      <td><%= showtime.theater.name %></td>
+      <td><%= showtime.shown_at %></td>
+
+      <td><%= link_to 'Show', showtime_url(showtime) %></td>
+      <td><%= link_to 'Edit', edit_showtime_url(showtime) %></td>
+      <td><%= link_to 'Destroy', showtime_url(showtime), method: 'delete', data: { confirm: "Do you really want to delete this showtime?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,21 @@
+<h1>Editing Review #<%= @review.id %></h1>
+
+
+<%= form_tag(review_url(@review), method: 'put') do %>
+
+  <div>
+    <%= label_tag :summary %><br />
+    <%= text_field_tag :summary, @review.summary %>
+  </div>
+
+  <div>
+    <%= label_tag :rating %><br />
+    <%= number_field_tag :rating, @review.rating %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Review" %>
+  </div>
+
+<% end %>

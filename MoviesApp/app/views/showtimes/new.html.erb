@@ -1,0 +1,26 @@
+<h1>New Showtime</h1>
+
+
+<%= form_tag(showtimes_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :movie_id %><br />
+    <%= select_tag :movie_id, options_from_collection_for_select(Movie.order('title asc'), :id, :title) %>
+  </div>
+
+  <div>
+    <%= label_tag :theater_id %><br />
+    <%= select_tag :theater_id, options_from_collection_for_select(Theater.order('name asc'), :id, :name) %>
+  </div>
+
+  <div>
+    <%= label_tag :shown_at %><br />
+    <%= text_field_tag :shown_at %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Showtime" %>
+  </div>
+<% end %>

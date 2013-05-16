@@ -1,0 +1,26 @@
+<h1>New Team</h1>
+
+
+<%= form_tag(teams_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <%= label_tag :wins %><br />
+    <%= number_field_tag :wins %>
+  </div>
+
+  <div>
+    <%= label_tag :losses %><br />
+    <%= number_field_tag :losses %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Team" %>
+  </div>
+<% end %>

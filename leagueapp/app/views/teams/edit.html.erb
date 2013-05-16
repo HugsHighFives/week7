@@ -1,0 +1,26 @@
+<h1>Editing Team #<%= @team.id %></h1>
+
+
+<%= form_tag(team_url(@team), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @team.name %>
+  </div>
+
+  <div>
+    <%= label_tag :wins %><br />
+    <%= number_field_tag :wins, @team.wins %>
+  </div>
+
+  <div>
+    <%= label_tag :losses %><br />
+    <%= number_field_tag :losses, @team.losses %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Team" %>
+  </div>
+
+<% end %>
