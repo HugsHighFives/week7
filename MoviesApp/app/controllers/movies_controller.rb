@@ -26,6 +26,12 @@ class MoviesController < ApplicationController
     redirect_to "/movies"
   end
 
+  def filter
+    search_term = params["term"]
+    @movies = Movie.where("title LIKE ? OR year = ?", "%#{search_term}%", search_term)
+    render 'index'
+  end
+
   def index
     sort_direction = params["sortby"]
     if sort_direction == nil
@@ -36,9 +42,12 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find_by_id(params["id"])
+    session["last_movie_id"] = @movie.id
   end
 
   def new
-
+    if session["user_id"].blank?
+      redirect_to "/movies", notice: "Please sign in first."
+    end
   end
 end

@@ -1,4 +1,8 @@
-<p><%= link_to "Add a New Movie", '/movies/new' %></p>
+<% if session["user_id"] %>
+  <p>
+    <%= link_to "Add a New Movie", '/movies/new' %>
+  </p>
+<% end %>
 
 <table>
   <thead>

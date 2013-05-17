@@ -13,9 +13,24 @@
     <nav>
       <%= link_to "Movies", '/movies' %> |
       <%= link_to "Theaters", '/theaters' %> |
-      <%= link_to "Reviews", '/reviews' %>
+      <%= link_to "Reviews", '/reviews' %> |
+
+      <% if session["user_id"].present? %>
+        Hello, <%= User.find_by_id(session["user_id"]).name %>!
+        <%= link_to "Sign Out", "/logout" %>
+      <% else %>
+        <%= link_to "Sign Up", '/users/new' %>
+        <%= link_to "Login", '/login' %>
+      <% end %>
+
     </nav>
+      <%= form_tag '/search' do %>
+        <%= text_field_tag :term, "", placeholder: 'Search...' %>
+      <% end %>
+
   </header>
+
+  <div class="notice"><%= notice %></div>
 
   <%= yield %>
 

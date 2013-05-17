@@ -12,6 +12,8 @@
  *= require_tree .
  */
 
+.notice { background: #e4ff21;}
+
 body {
   font-family: 'Helvetica Nueue', Helvetica, Arial;
   font-size: 16px;

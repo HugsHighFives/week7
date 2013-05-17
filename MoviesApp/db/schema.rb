@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509212858) do
+ActiveRecord::Schema.define(:version => 20130516193415) do
 
   create_table "movies", :force => true do |t|
     t.string   "title"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(:version => 20130509212858) do
   create_table "theaters", :force => true do |t|
     t.string "name"
     t.string "address"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string "name"
+    t.string "password_digest"
   end
 
 end
