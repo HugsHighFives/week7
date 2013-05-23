@@ -81,7 +81,8 @@ MoviesApp::Application.routes.draw do
  get "/movies", controller: 'movies', action: 'index'
  post "/movies", controller: 'movies', action: 'create'
 
- get '/movies/new', controller: 'movies', action: 'new'
+ get '/movies/new', controller: 'movies', action: 'new', as: 'new_movie'
+
  get '/movies/:id', controller: 'movies', action: 'show'
  put '/movies/:id', controller: 'movies', action: 'update'
 

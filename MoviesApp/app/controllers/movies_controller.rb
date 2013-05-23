@@ -22,8 +22,11 @@ class MoviesController < ApplicationController
     @movie = Movie.new
     @movie.title = params[:title]
     @movie.year = params[:year]
-    @movie.save
-    redirect_to "/movies"
+    if @movie.save
+      redirect_to "/movies"
+    else
+      redirect_to "/movies/new", notice: "Nice try."
+    end
   end
 
   def filter
@@ -43,6 +46,8 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find_by_id(params["id"])
     session["last_movie_id"] = @movie.id
+
+    @average_rating = @movie.reviews.average(:rating)
   end
 
   def new

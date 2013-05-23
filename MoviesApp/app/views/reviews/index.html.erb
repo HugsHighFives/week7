@@ -17,11 +17,9 @@
   <tbody>
   <% @reviews.each do |review| %>
     <tr>
-      <% m = Movie.find_by_id(review.movie_id) %>
-
       <td>
-        <% if m.present? %>
-          <%= m.title %>
+        <% if review.movie.present? %>
+          <%= review.movie.title %>
         <% end %>
       </td>
       <td><%= review.summary %></td>

@@ -1,3 +1,9 @@
-<h1><%= @movie.title %></h1>
+<h1><%= @movie.title %></h1> (Average Rating: <%= @average_rating %>)
 
 <p>Year: <%= @movie.year %></p>
+
+<ul>
+  <% @movie.reviews.each do |review| %>
+    <li><%= review.summary %></li>
+  <% end %>
+</ul>
